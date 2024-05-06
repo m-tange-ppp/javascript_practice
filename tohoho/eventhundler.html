@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>イベントハンドラのかきかた</title>
+    <!-- headで関数を定義してイベントハンドラから呼び出せる -->
+    <script>
+        function testFunction() {
+            alert("test!!");
+        }
+        function kakunin() {
+            if (confirm("いいっすか？")) {
+                return true; 
+            } else {
+                return false;
+            }
+        }
+        addEventListener("load", function() {
+            console.log("loadしたよ"); 
+        });
+    </script>
+</head>
+<body>
+    <!-- onclickでイベントハンドラを設定 -->
+    <input type="button" value="OK" onclick="alert('OK!!');">
+    <input type="button" value="test" onclick="testFunction();"> 
+    
+    <!-- input type="submit"でreturn falseでキャンセル時の動作無効化 -->
+    <form action="kakunin">
+        <input type="submit" value="OK" onclick="return kakunin('OK');">
+    </form>
+
+    <!-- addEventListenerでイベントハンドラを設定 -->
+    <input id="dbc1" type="button" value="Double click me!">
+    <script>
+        document.getElementById("dbc1").addEventListener("dblclick", function() {
+            alert("dbc!!");
+        });
+    </script>
+
+    <!-- いろいろなon〇〇 -->
+    <input type="text" id="pduControl" 
+        onkeypress="document.getElementById('pdu').innerHTML += 'Press'"
+        onkeydown="document.getElementById('pdu').innerHTML += 'Down'"
+        onkeyup="document.getElementById('pdu').innerHTML += 'Up'">
+    <div id="pdu"></div>
+    <input type="button" value="マウスでいじって" id="mouoseControl" 
+        onmousedown="document.getElementById('mouse').innerHTML += 'Down'"
+        onmouseup="document.getElementById('mouse').innerHTML += 'Up'"
+        onmouseover="document.getElementById('mouse').innerHTML += 'Over'"
+        onmouseout="document.getElementById('mouse').innerHTML += 'Out'"
+        onmousemove="document.getElementById('mouse').innerHTML += 'Move'">
+    <div id="mouse"></div>
+</body>
+</html>

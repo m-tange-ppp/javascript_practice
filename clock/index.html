@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<body>
+    <div id="d1"></div>
+    <!-- setIntervalで繰り返し -->
+    <script>
+        setInterval(function(){
+            document.getElementById("d1").innerHTML = new Date().toLocaleString();
+        }, 1000)
+    </script>
+
+    <!-- onclickなどでイベントリスナーを設定できる -->
+    <input type="button" value="Clickして！" onclick="alert('Hey!!')">
+</body>
+</html>
