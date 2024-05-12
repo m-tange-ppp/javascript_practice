@@ -28,7 +28,7 @@
     
     <!-- input type="submit"でreturn falseでキャンセル時の動作無効化 -->
     <form action="kakunin">
-        <input type="submit" value="OK" onclick="return kakunin('OK');">
+        <input type="submit" value="kakunin" onclick="return kakunin();">
     </form>
 
     <!-- addEventListenerでイベントハンドラを設定 -->
@@ -43,14 +43,43 @@
     <input type="text" id="pduControl" 
         onkeypress="document.getElementById('pdu').innerHTML += 'Press'"
         onkeydown="document.getElementById('pdu').innerHTML += 'Down'"
-        onkeyup="document.getElementById('pdu').innerHTML += 'Up'">
+        onkeyup="document.getElementById('pdu').innerHTML += 'Up'"
+        onclick="document.getElementById('pdu').innerHTML = ''">
     <div id="pdu"></div>
+
     <input type="button" value="マウスでいじって" id="mouoseControl" 
         onmousedown="document.getElementById('mouse').innerHTML += 'Down'"
         onmouseup="document.getElementById('mouse').innerHTML += 'Up'"
         onmouseover="document.getElementById('mouse').innerHTML += 'Over'"
         onmouseout="document.getElementById('mouse').innerHTML += 'Out'"
-        onmousemove="document.getElementById('mouse').innerHTML += 'Move'">
+        onmousemove="document.getElementById('mouse').innerHTML += 'Move'"
+        onclick="document.getElementById('mouse').innerHTML = ''">
     <div id="mouse"></div>
+
+    <!-- onchangeで部品の変更をトリガーに -->
+    <script>
+        function doChange() {
+            document.getElementById("Event").innerHTML += "Change";
+        }
+    </script>
+    <input type="checkbox" name="check1" id="check1" onchange="doChange()">
+    <input type="text" name="text1" id="text1" onchange="doChange()">
+    <select name="select1" id="select1" onchange="doChange()">
+        <option>SUN</option>
+        <option>MOON</option>
+    </select>
+    <div id="Event">Event:</div>
+
+    <!-- oninputで入力をトリガーに -->
+    <script>
+        function doInput() {
+            document.getElementById("Text").innerHTML = 
+            "input:" + document.getElementById("inputText").value;
+        }
+    </script>
+    <label>コピー元<input type="text" name="text2" id="inputText" oninput="doInput()"></label>
+    <div id="Text">input:</div>
+
+    
 </body>
 </html>
