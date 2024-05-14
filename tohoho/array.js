@@ -7,38 +7,47 @@ console.log(Array.from(s));
 console.log(s.split(""));
 console.log(Array.from([1, 2, 3], function(x) { return (x ** 2);})); // リスト内包表記ぽいやつ
 
+
 // 配列の長さ
 console.log(arr123.length); // 文字列と同じで長さを取得
 arr123.length = 0; // 長さを代入すると配列を消去できる
 console.log(arr123);
 arr123 = ["One", "Two", "Three"];
 
+
 // 配列のループ
 for (let i = 0; i < arr123.length; i++) {
     console.log(arr123[i]);
 }
+
 arr123.forEach(function(value, index) {
     console.log(index, value);
 }); // forEachでenumerateみたいな
+
 arr123.forEach((value, index, array) => {
     console.log(index, value);
 }) // function() {}はアロー関数でもいける
+
 for (let elem of arr123.entries()) {
     console.log(elem[0] + ":" + elem[1]);
 } // entries()で[key, value]のイテレータ。enumerateみたいな
+
 for (let key of arr123.keys()) {
     console.log(key);
 } // keys()でkeyのみのイテレータ
+
 for (let value of arr123.values()) {
     console.log(value);
 } // values()でvalueのみのイテレータ
+
+// mapで新しい配列をつくる
 arr123.map((value, index, array) => {console.log(index + "=>" + value);});
 arr123double = arr123.map((value, index, array) => {return value + value;});
 console.log(arr123double);
 
 // 配列の検査
 console.log(arr123.indexOf("Two"));
-console.log(arr123.indexOf("2"));
+console.log(arr123.indexOf("2")); // 存在しなければ―1を返す
 arrTest = [80, 63, 95, 99, 87];
 function judgeEveryone(score) {
     if (arrTest.every(value => {return value >= score;})) { // every()でAllみたいなやつ
