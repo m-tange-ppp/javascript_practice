@@ -1,5 +1,7 @@
 // \nで改行
 console.log("おはよう\n日本");
+console.log(`おはよう
+日本`); // バッククォートで改行を直接
 
 // ""の中では''使う
 console.log("HTMLと合わせて使う'シングルクォート'");
@@ -44,6 +46,7 @@ console.log(s1.repeat(3)); // 文字列の繰り返し
 s1 = "あいうえおかきくけこかきくけこ";
 console.log(s1.replace("かきくけこ", "がぎぐげご")); // 初めに一致した箇所だけ置換
 console.log(s1.replaceAll("かきくけこ", "がぎぐげご")); // 全部置換
+console.log(s1); // replaceは非破壊
 s1 = "aBCdE";
 console.log(s1.toUpperCase()); // 大文字
 console.log(s1.toLowerCase()); // 小文字
