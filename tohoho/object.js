@@ -86,3 +86,67 @@ console.log(MyPoint.total);
 MyPoint.addScore = 65; // addScore(65)ではない
 console.log(MyPoint.total);
 console.log(MyPoint.moru);
+
+
+// Object.keys, values, entriesで配列取得
+console.log(Object.keys(MyPoint));
+console.log(Object.values(MyPoint));
+console.log(Object.entries(MyPoint).flat().forEach(elem => {
+    console.log(elem);
+}));
+
+
+// Object.assignでオブジェクトのマージ
+const objA = {
+    name:"A",
+    age:28,
+    greet() {
+        console.log(`私の名前は${this.name}です。`);
+    },
+};
+const objB = {
+    name:"B",
+    hobby:"プログラミング",
+    introduceSelf() {
+        console.log(`私の名前は${this.name}です。趣味は${this.hobby}です。`);
+    },
+};
+
+const objM1 = Object.assign({}, objB, objA); // {}に残りの引数のオブジェクトのプロパティを追加
+objM1.greet(); // 後ろの引数が後で追加される。nameが上書きされている
+objM1.introduceSelf();
+
+const objM2 = Object.assign(objA, objB);
+objM2.introduceSelf();
+objA.introduceSelf(); // objAが変更されている
+console.log(objA === objM2);
+
+const objM3 = {
+    ...objA, // ...Objectでプロパティを展開できる
+    ...objB,
+    set rename(name) {
+        this.name = name;
+    },
+    get saba() {
+        return this.age - 5;
+    }
+};
+objM3.introduceSelf();
+objM3.rename = "Tanaka";
+objM3.introduceSelf();
+console.log(objM3.saba);
+
+const shallowClone = (obj) => { // 複製をつくる関数
+    return Object.assign({}, obj);
+};
+const cloneObjM3 = shallowClone(objM3);
+cloneObjM3.introduceSelf();
+console.log(objM3 === cloneObjM3);
+console.log(objM3.name === cloneObjM3.name);
+
+
+// プロパティの存在確認
+console.log("name" in objM3);
+console.log("test" in objM3);
+console.log(`私は${objM3?.name}です。`);
+console.log(`私は${objM3?.test}です。`); // ?.で存在しなければundifined返す
