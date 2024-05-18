@@ -40,10 +40,12 @@ for (let value of arr123.values()) {
     console.log(value);
 } // values()でvalueのみのイテレータ
 
+
 // mapで新しい配列をつくる
 arr123.map((value, index, array) => {console.log(index + "=>" + value);});
 arr123double = arr123.map((value, index, array) => {return value + value;});
 console.log(arr123double);
+
 
 // 配列の検査
 console.log(arr123.indexOf("Two"));
@@ -70,12 +72,17 @@ judgeAnyone(100);
 console.log(arrTest);
 console.log(arrTest.find((value) => {return value >= 90;})); // find()で最初の一致
 
+
 // 配列の連結
 let arr12 = ["One", "Two"];
 let arr34 = ["Three", "Four"];
 let arr1234 = arr12.concat(arr34); // concat()で連結
 console.log(arr1234);
 console.log(arr1234.join("-")); // join()で区切り文字指定文字列
+console.log(arr12); // concatは非破壊
+let arrSpread = [...arr12, ...arr34, 5, 6]; // ...で展開できる
+console.log(arrSpread);
+
 
 // 配列の追加
 let arrg = ["Green"];
