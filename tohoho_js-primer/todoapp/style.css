@@ -1,4 +1,7 @@
-html,
+html {
+    overflow-y: scroll;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -30,10 +33,9 @@ body {
 
 .todoapp {
     background: #fff;
-    margin: 130px 0 40px 0;
+    margin: 40px 0 40px 0;
     position: relative;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
-    0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 .todoapp input::placeholder {
@@ -50,7 +52,7 @@ body {
     border: 0;
     color: inherit;
     box-sizing: border-box;
-    padding: 16px 16px 16px 60px;
+    padding: 16px 16px 16px 32px;
     border: none;
     background: rgba(0, 0, 0, 0.003);
     box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
