@@ -20,6 +20,11 @@
             console.log("loadしたよ"); 
         });
     </script>
+    <style>
+        div {
+            overflow-wrap: break-word;;
+        }
+    </style>
 </head>
 <body>
     <!-- onclickでイベントハンドラを設定 -->
@@ -27,7 +32,7 @@
     <input type="button" value="test" onclick="testFunction();"> 
     
     <!-- input type="submit"でreturn falseでキャンセル時の動作無効化 -->
-    <form action="kakunin">
+    <form action="#">
         <input type="submit" value="kakunin" onclick="return kakunin();">
     </form>
 
